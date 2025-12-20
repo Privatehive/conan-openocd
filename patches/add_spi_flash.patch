@@ -1,0 +1,12 @@
+diff --git a/src/flash/nor/spi.c b/src/flash/nor/spi.c
+index 2a536358e..03cac6ada 100644
+--- a/src/flash/nor/spi.c
++++ b/src/flash/nor/spi.c
+@@ -38,6 +38,7 @@ const struct flash_device flash_devices[] = {
+ 	 *                              _cmd _cmd   _prog _cmd* _erase            size   size*   size
+ 	 *                                          _cmd        _cmd
+ 	 */
++	FLASH_ID("byte by25q16es",      0x03, 0xeb, 0x02, 0xd8, 0xc7, 0x00154068, 0x100, 0x10000, 0x200000),
+ 	FLASH_ID("st m25pe10",          0x03, 0x00, 0x02, 0xd8, 0x00, 0x00118020, 0x100, 0x10000, 0x20000),
+ 	FLASH_ID("st m25pe20",          0x03, 0x00, 0x02, 0xd8, 0x00, 0x00128020, 0x100, 0x10000, 0x40000),
+ 	FLASH_ID("st m25pe40",          0x03, 0x00, 0x02, 0xd8, 0x00, 0x00138020, 0x100, 0x10000, 0x80000),

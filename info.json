@@ -1,0 +1,13 @@
+{
+  "version": "2.2.0",
+  "projectName": "openocd",
+  "projectDescription": "A conan package that provides a patched version of openocd optimized for Raspberry Pi Debug Probe.",
+  "vendor": "Björn Stresing",
+  "contact": "bjoern.stresing@gmx.de",
+  "domain": "de.privatehive",
+  "copyrightYear": "2025",
+  "repository": "https://github.com/Privatehive/conan-openocd",
+  "topics": ["Raspberry", "Pico", "Debug", "Probe"],
+  "homepage": "https://github.com/raspberrypi/openocd",
+  "license": "GPLv2"
+}
