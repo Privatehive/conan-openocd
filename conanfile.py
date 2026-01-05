@@ -3,7 +3,7 @@
 
 from conan import ConanFile
 from conan.tools.scm import Git
-from conan.tools.system.package_manager import Apt, PacMan
+from conan.tools.system.package_manager import Apt
 from conan.tools.files import patch
 from conan.tools.gnu import Autotools, AutotoolsToolchain
 from conan.errors import ConanInvalidConfiguration
@@ -51,13 +51,16 @@ class OpenocdConan(ConanFile):
             raise ConanInvalidConfiguration(
                 f"{self.name} {self.version} is only supported for the following architectures on {self.settings.os}: {valid_arch}")
 
+    def system_requirements(self):
+        Apt(self).install(["libjim-dev"])
+
     def generate(self):
         tc = AutotoolsToolchain(self)
         tc.generate()
 
     def source(self):
         git = Git(self)
-        git.clone(url="https://github.com/raspberrypi/openocd", args=["--branch rpi-common", "--recursive", "--depth 1"])
+        git.clone(url="https://github.com/raspberrypi/openocd", args=["--branch sdk-%s" % self.version, "--recursive", "--depth 1"])
         patch(self, base_path="openocd", patch_file=os.path.join("patches", "add_spi_flash.patch"))
 
     def build(self):
